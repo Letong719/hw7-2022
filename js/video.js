@@ -9,8 +9,9 @@ document.querySelector("#play").addEventListener("click", function() {
 	console.log("Play Video");
 	vid = document.getElementById("player1"); 
 	vid.play();
-	volumeInfo = document.getElementById("volume");
-	volumePercent = (vid.volume * 100).toFixed(0);
+	// Update volume value
+	var volumeInfo = document.getElementById("volume");
+	var volumePercent = (vid.volume * 100).toFixed(0);
 	volumeInfo.innerText = volumePercent + "%";
 });
 
@@ -45,7 +46,7 @@ document.querySelector("#skip").addEventListener("click", function() {
 
 document.querySelector("#mute").addEventListener("click", function() {
 	vid = document.getElementById("player1");
-	muteButton = document.getElementById("mute");
+	var muteButton = document.getElementById("mute");
 	vid.muted = !vid.muted;
 	if (vid.muted) {
 		muteButton.innerText = "Unmute";
@@ -59,16 +60,17 @@ document.querySelector("#mute").addEventListener("click", function() {
 document.querySelector("#slider").addEventListener("change", function(){
     console.log(this.value);
     vid = document.getElementById("player1");
-	volumeSlider = document.getElementById("slider");
-	volumeInfo = document.getElementById("volume");
+	var volumeSlider = document.getElementById("slider");
+	var volumeInfo = document.getElementById("volume");
 	vid.volume = volumeSlider.value / 100;
 	volumeInfo.innerText = volumeSlider.value + "%";
 });
 
 document.querySelector("#vintage").addEventListener("click", function(){
     vid = document.getElementById("player1");
-	vid.classList.add("oldSchool")
+	vid.classList.add("oldSchool");
 	console.log("Old School style");
+	
 });
 
 document.querySelector("#orig").addEventListener("click", function(){
@@ -76,4 +78,3 @@ document.querySelector("#orig").addEventListener("click", function(){
 	vid.classList.remove("oldSchool")
 	console.log("Original style");
 });
-
