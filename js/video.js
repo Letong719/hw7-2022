@@ -9,6 +9,9 @@ document.querySelector("#play").addEventListener("click", function() {
 	console.log("Play Video");
 	var vid = document.getElementById("player1"); 
 	vid.play();
+	var volumeInfo = document.getElementById("volume");
+	var volumePercent = (vid.volume * 100).toFixed(0);
+	volumeInfo.innerText = volumePercent + "%";
 });
 
 document.querySelector("#pause").addEventListener("click", function() {
@@ -46,8 +49,10 @@ document.querySelector("#mute").addEventListener("click", function() {
 	vid.muted = !vid.muted;
 	if (vid.muted) {
 		muteButton.innerText = "Unmute";
+		console.log("The video is muted");
 	  } else {
 		muteButton.innerText = "Mute";
+		console.log("The video is unmuted");
 	  }
 });
 
@@ -63,10 +68,12 @@ document.querySelector("#slider").addEventListener("change", function(){
 document.querySelector("#vintage").addEventListener("click", function(){
     var vid = document.getElementById("player1");
 	vid.classList.add("oldSchool")
+	console.log("Old School style");
 });
 
 document.querySelector("#orig").addEventListener("click", function(){
     var vid = document.getElementById("player1");
 	vid.classList.remove("oldSchool")
+	console.log("Original style");
 });
 
